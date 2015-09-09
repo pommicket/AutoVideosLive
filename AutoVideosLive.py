@@ -3,6 +3,9 @@ import random
 import numpy as np
 import time
 
+#GPU.platform_id = -1 #Uncomment this line to choose what device to use
+#                       (otherwise it will pick automatically)
+
 single = ['cos', 'sin'] #Operations on a single number
 binary = ['*', '+', '-'] #Operations for 2 numbers
 numlist = ['x', 'y', 't', 'Constant']
@@ -82,7 +85,7 @@ t = 0
 
 def startVideo():
     global width, height, rfunction, gfunction, bfunction
-    global imageLabel, globalSize, clProgramTemplate
+    global imageLabel, globalSize, clProgramTemplate, t
 
     root.update()
     resolution = root.winfo_width(), root.winfo_height()
@@ -90,6 +93,7 @@ def startVideo():
     root.resizable(False, False)
 
     startButton.destroy()
+    infoLabel.destroy()
 
     imageLabel = tk.Label(root)
     imageLabel.pack()
@@ -154,9 +158,9 @@ def playFrame():
     output.resize(height, width, 3, refcheck=False)
 
     output = output.astype(np.uint8)
-    end = time.time()
+    
 
-    print end-start
+    
     
     img = Image.fromarray(output, 'RGB')
 
@@ -165,17 +169,22 @@ def playFrame():
     imageLabel.image = photo
 
     t += 1
+    end = time.time()
+    print end-start
 
     root.after(1, playFrame)
 
 def spacePress(e):
     if e.char == ' ':
         onSpacePress()
-    
+
 startButton = tk.Button(text='Start video at this resolution',
                         command=startVideo)
 
 startButton.pack()
+
+infoLabel = tk.Label(text='Press space to change video.')
+infoLabel.pack()
 
 root.bind('<Key>', spacePress)
 root.mainloop()
