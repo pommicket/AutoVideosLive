@@ -1,6 +1,8 @@
 # AutoVideosLive
 AutoVideos that play live using OpenCL.
 
+AutoVideos, AutoImages, and AutoAudio can be found [here](https://https://github.com/pommicket/AutoArtGPU).
+
 AutoVideosLive uses your GPU to create AutoVideos very quickly and play them as they are being created.
 
 **AutoVideosLive requires the following dependencies:**  
