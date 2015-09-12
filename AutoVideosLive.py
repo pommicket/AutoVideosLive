@@ -1,10 +1,27 @@
 import GPU
+
+#GPU.platform_id = -1 #Uncomment this line to manually choose what device to use
+
+
 import random
 import numpy as np
 import time
 
-#GPU.platform_id = -1 #Uncomment this line to choose what device to use
-#                       (otherwise it will pick automatically)
+
+try:
+    import Tkinter as tk
+except:
+    import tkinter as tk
+
+
+try:
+    import ImageTk
+    import Image
+except:
+    from PIL import ImageTk
+    from PIL import Image
+
+
 
 single = ['cos', 'sin'] #Operations on a single number
 binary = ['*', '+', '-'] #Operations for 2 numbers
@@ -58,18 +75,6 @@ def randFunction(length, singleweight, numberweight):
         function += ')' * (function.count('(') - function.count(')'))
     return function
 
-try:
-    import Tkinter as tk
-except:
-    import tkinter as tk
-
-
-try:
-    import ImageTk
-    import Image
-except:
-    from PIL import ImageTk
-    from PIL import Image
     
 gpu = GPU.GPU()
 
