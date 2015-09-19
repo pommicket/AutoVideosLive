@@ -1,7 +1,6 @@
 import GPU
 
-#GPU.platform_id = -1 #Uncomment this line to manually choose what device to use
-
+GPU.platform_id = -1
 
 import random
 import numpy as np
