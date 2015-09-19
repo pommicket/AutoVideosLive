@@ -43,7 +43,7 @@ def randFunction(length, singleweight, numberweight):
         chanceend = 0
         length = 1 #Number of operations done so far
         while True:
-            chanceend = (1.0 - (1.0 / length)) ** 12.0
+            chanceend = (1.0 - (1.0 / length)) ** (float(functionLength)/7)
             if lasttype == 'n':
                 number = random.random()
                 if number < chanceend:
