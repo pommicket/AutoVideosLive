@@ -1,6 +1,6 @@
 # AutoVideosLive
 
-**A newer, much better version of this is available here: [autoart-gl](https://pommicket.com/autoart-gl)**
+**A newer, much better version of this is available here: [autoart-gl](https://github.com/pommicket/autoart-gl)**
 
 
 
